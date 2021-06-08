@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  push:
+    branches: [ actions ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: nastyabirillo/hyperstyle
+    steps:
+      - name: Test
+        run: |
+          pwd
+          ls -la
