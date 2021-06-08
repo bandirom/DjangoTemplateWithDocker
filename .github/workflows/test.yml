@@ -27,7 +27,7 @@ jobs:
 #    needs: ['build']
     runs-on: ubuntu-latest
     container:
-      image: nastyabirillo/hyperstyle
+      image: python:3.8.2-alpine3.11
     steps:
       - name: Test
         run: |
