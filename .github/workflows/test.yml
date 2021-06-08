@@ -10,12 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Test
+      - name: Check out my other private repo
+        uses: actions/checkout@master
+        with:
+          repository: hyperskill/hyperstyle
         run: |
           pwd
-          git clone git@github.com/hyperskill/hyperstyle.git
           ls -la
-
   test:
     needs: ['build']
     runs-on: ubuntu-latest
