@@ -6,7 +6,18 @@ on:
   workflow_dispatch:
 
 jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: |
+          pwd
+          git clone https://github:com/hyperskill/hyperstyle.git
+          ls -la
+
   test:
+    needs: ['build']
     runs-on: ubuntu-latest
     container: nastyabirillo/hyperstyle
     steps:
