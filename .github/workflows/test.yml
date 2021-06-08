@@ -18,9 +18,9 @@ jobs:
         run: |
           docker build -t hyperstyle -f Dockerfile .
     container: hyperstyle
-      steps:
-        - name: Test
-        - run: |
+
+      - name: Test
+      - run: |
           ls -la
 
 #  test:
