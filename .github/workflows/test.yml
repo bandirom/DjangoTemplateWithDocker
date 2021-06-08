@@ -7,28 +7,39 @@ on:
 
 jobs:
 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out my other private repo
-        uses: actions/checkout@master
-        with:
-          repository: hyperskill/hyperstyle
-      - name: Build
-        run: |
-          docker build -t hyperstyle -f Dockerfile .
-    container: hyperstyle
+#  build:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Check out my other private repo
+#        uses: actions/checkout@master
+#        with:
+#          repository: hyperskill/hyperstyle
+#      - name: Build
+#        run: |
+#          docker build -t hyperstyle -f Dockerfile .
+#    container: hyperstyle
+#
+#      - name: Test
+#      - run: |
+#          ls -la
 
+  test:
+#    needs: ['build']
+    runs-on: ubuntu-latest
+    container:
+      image: nastyabirillo/hyperstyle
+    steps:
       - name: Test
-      - run: |
+        run: |
+          pwd
           ls -la
 
-#  test:
-#    needs: ['build']
-#    runs-on: ubuntu-latest
-#    container: nastyabirillo/hyperstyle
-#    steps:
-#      - name: Test
-#        run: |
-#          pwd
-#          ls -la
+  node-docker:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.15.0-alpine3.12
+    steps:
+      - name: Log the node version
+        run: |
+          node -v
+          cat /etc/os-release
