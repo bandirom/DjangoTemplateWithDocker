@@ -14,6 +14,7 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: hyperskill/hyperstyle
+      -name: Test
         run: |
           pwd
           ls -la
