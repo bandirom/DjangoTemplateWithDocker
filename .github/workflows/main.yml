@@ -5,7 +5,7 @@ env:
   PROJECT_PATH: "/home/ubuntu/template/"
 on:
   push:
-    branches: [ master ]
+    branches: [ actions ]
   pull_request:
     branches: [ master ]
 
@@ -25,6 +25,16 @@ jobs:
         run: |
           cd web
           flake8 .
+
+  test:
+    runs-on: ubuntu-latest
+    container: nastyabirillo/hyperstyle
+    steps:
+      - name: Test
+        run: |
+          pwd
+          ls -la
+
 
   build:
     runs-on: ubuntu-latest
